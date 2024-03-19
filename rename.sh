@@ -13,5 +13,5 @@ find "$IMPORT_DIR" -iname '*.jpg' | sort -t '-' -k 2n -k 3n | cat -n | while rea
 	no_event="$(echo $f | sed -E 's/^[^-]+-//')"
 	date_part="$(echo $no_event | grep -Eo '^[^-]+')"
 	mkdir -p "$RENAMED_DIR/$date_part"
-	cp -v "$f" "$RENAMED_DIR/$date_part/$no_event"
+	mv -v "$f" "$RENAMED_DIR/$date_part/$no_event"
 done
